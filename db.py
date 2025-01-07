@@ -9,7 +9,7 @@ async def get_db_pool():
         user='postgres',
         password='1234',
         database='namoz_bot',
-        host='localhost'
+        host='127.0.0.1'
     )
     try:
         yield pool
