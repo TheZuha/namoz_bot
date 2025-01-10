@@ -3,14 +3,11 @@ from contextlib import asynccontextmanager
 
 
 # PostgreSQL bilan aloqani yaratish
+DATABASE_URL = 'postgresql://namoz_bot_user:Dh8TzbK8iTXrbphCr1uVigFtitMZZeQ2@dpg-cu0garhopnds738pm830-a.oregon-postgres.render.com/namoz_bot'
+
 @asynccontextmanager
 async def get_db_pool():
-    pool = await asyncpg.create_pool(
-        user='postgres',
-        password='1234',
-        database='namoz_bot',
-        host='127.0.0.1'
-    )
+    pool = await asyncpg.create_pool(DATABASE_URL)
     try:
         yield pool
     finally:
